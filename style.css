@@ -1,0 +1,77 @@
+#header {
+    background-color: aquamarine;
+    color: tan;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+p {
+    text-align: center;
+}
+
+#stock {
+    margin-top: 10px;
+    padding: 10px;
+}
+
+#addStock {
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#stockList {
+    margin: 30px;
+}
+
+#getReport {
+    padding: 10px;
+    font-weight: bold;
+    width: 275px;
+    background-color: limegreen;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+#container {
+    max-width: 500px;
+    min-height: 480px;
+    margin: 20px auto;
+    border: 1px solid gray;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#disclaimer {
+    text-decoration: underline;
+    font-style: italic;
+}
+
+#apimessage {
+    font-weight: bold;
+    margin: 10px;
+    text-align: center;
+}
+
+#loadingImg {
+    display: flex;
+    justify-content: center;
+}
+
+#loadingImg img {
+    width: 260px;
+    height: 260px;
+    margin-bottom: 25px;
+}
