@@ -75,3 +75,14 @@ p {
     height: 260px;
     margin-bottom: 25px;
 }
+
+#backBtn {
+    display: block;
+    padding: 10px 20px;
+    background-color: limegreen;
+    color: white;
+    cursor: pointer;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: 35px auto;
+}

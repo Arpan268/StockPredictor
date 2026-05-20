@@ -2,8 +2,8 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import { dates } from './dates.js';
 const stockapikey = import.meta.env.VITE_STOCK_API_KEY;
 const geminiapikey = import.meta.env.VITE_GEMINI_API_KEY;
+const originalcontent = document.querySelector('#content').innerHTML;
 const label = document.querySelector('#label');
-label.textContent = `Add upto 3 stocks below to get a super accurate stock predictions report`;
 const stockArr = []
 const generate = document.querySelector('#getReport');
 generate.disabled = true;
@@ -56,6 +56,10 @@ async function fetchStockData() {
             }
             else {
                 document.querySelector('#apimessage').textContent = 'Error fetching stock data! Please check the stock ticker and try again.';
+                const contentBox = document.querySelector('#content');
+                contentBox.style.display = 'block';
+                contentBox.innerHTML = '';
+                home();
             }
         }))
         if (success === stockArr.length) {
@@ -70,6 +74,10 @@ async function fetchStockData() {
         console.error(error);
         document.querySelector('#loadingImg').style.display = 'none';
         document.querySelector('#apimessage').textContent = 'Error fetching stock data';
+        const contentBox = document.querySelector('#content');
+        contentBox.style.display = 'block';
+        contentBox.innerHTML = '';
+        home();
     }
 }
 
@@ -108,6 +116,7 @@ ${data}`;
         console.error(error);
         document.querySelector('#loadingImg').style.display = 'none';
         document.querySelector('#apimessage').textContent = 'Error generating report. Please wait some time for the API to reset and try again.';
+        home();
     }
 }
 
@@ -121,4 +130,16 @@ function renderReport(report) {
     formattedReport = formattedReport.replace(/\n{2,}/g, '<br><br>');
     formattedReport = formattedReport.replace(/\n/g, '<br>');
     content.innerHTML = formattedReport;
+    home();
+}
+
+function home() {
+    const backBtn = document.createElement('button');
+    backBtn.textContent = '<- Back to Home';
+    backBtn.id = 'backBtn';
+    const content = document.querySelector('#content');
+    content.appendChild(backBtn);
+    backBtn.addEventListener('click', () => {
+        window.location.reload();
+    });
 }
