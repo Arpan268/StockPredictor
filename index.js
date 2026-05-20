@@ -134,12 +134,18 @@ function renderReport(report) {
 }
 
 function home() {
-    const backBtn = document.createElement('button');
-    backBtn.textContent = '<- Back to Home';
+    /*const backBtn = document.createElement('button');
+    backBtn.innerHTML = '&larr; Back to Home';
     backBtn.id = 'backBtn';
     const content = document.querySelector('#content');
     content.appendChild(backBtn);
     backBtn.addEventListener('click', () => {
-        window.location.reload();
-    });
+        window.location.reload();       This refreshes the page thus giving the homepage
+    });*/
+    const backLink = document.createElement('a');
+    backLink.href = '/';
+    backLink.innerHTML = '&larr; Back to Home';
+    backLink.id = 'backBtn';
+    const content = document.querySelector('#content');
+    content.appendChild(backLink);
 }
